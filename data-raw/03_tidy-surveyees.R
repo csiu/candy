@@ -1,6 +1,7 @@
 suppressPackageStartupMessages(library(dplyr))
 
-candy_survey <- read.delim("candy-survey-2015.csv", sep = ",", check.names = FALSE)
+candy_survey <- read.delim("candy-survey-2015.csv", sep = ",",
+                           check.names = FALSE, na.strings = c("NA", ""))
 
 ## remove space in front of colnames
 colnames(candy_survey) <- sub('^\\s+', '', colnames(candy_survey))
