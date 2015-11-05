@@ -58,3 +58,7 @@ candy_surveyee <- Rename_columns(candy_surveyee,
 candy_surveyee <- Rename_columns(candy_surveyee,
                                  "Which day do you prefer, Friday or Sunday?",
                                  "friday_or_saturday")
+
+## turn trick_or_treat into logical
+candy_surveyee <- candy_surveyee %>%
+  mutate(trick_or_treat = trick_or_treat == "yes")
