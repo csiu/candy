@@ -26,28 +26,29 @@ dim(candy_survey)
 
 Categories of questions on the survey related to candy:
 
-| Category | Response | Ideal Response class |
-|:--------:|:--------:|:--------------------:|
-| Going trick or treating? | {yes, no} | logical |
-| Age | free text | should be int |
-| [the candy] | {joy, despair} | logical | 
-| Other joy candy | free text | list |
-| Other despair candy | free text | list |
-| Comments | free text | text |
+| Category | Response | Ideal Response class | Done? | 
+|:--------:|:--------:|:--------------------:|:-------:|
+| Timestamp | Timestamp | time | [x] |
+| Going trick or treating? | {yes, no} | logical | [x] |
+| Age | free text | should be int | [] |
+| [the candy] | {joy, despair} | logical | [] |
+| Other joy candy | free text | list | [] |
+| Other despair candy | free text | list | [] |
+| Comments | free text | text | [] |
 
 Categories of questions on the survey not-related to candy:
 
-| Category | Response | Ideal Response class |
-|:--------:|:--------:|:--------------------:|
-| guess mints in hand | free text | should be int |
-| Betty or Veronica? | {Betty, Veronica, ??} | factor |
-| tears when | multiple choice (can select more than 1) | maybe factor | 
-| the dress | {blue and black, white and gold} | factor | 
-| favorite font | free text | should be factor |
-| intelligent design | multiple choice + other | should be factor | 
-| [separation] | {1, 2, 3+} | factor | 
-| Imitation | {Flattery, Laziness, Lazily flattering someone} | factor | 
-| Friday vs Sunday | {Friday, Sunday} | factor |
+| Category | Response | Ideal Response class | Tidied? | 
+|:--------:|:--------:|:--------------------:|:-------:|
+| guess mints in hand | free text | should be int | [] |
+| Betty or Veronica? | {Betty, Veronica, ??} | factor | [x] |
+| tears when | multiple choice (can select more than 1) | maybe factor | [] |
+| the dress | {blue and black, white and gold} | factor | [x] |
+| favorite font | free text | should be factor | [] |
+| intelligent design | multiple choice + other | should be factor | [] |
+| [separation] | {1, 2, 3+} | factor | [] |
+| Imitation | {Flattery, Laziness, Lazily flattering someone} | factor | [x] |
+| Friday vs Sunday | {Friday, Sunday} | factor | [x] |
 
 
 ```r
