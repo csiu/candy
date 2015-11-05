@@ -1,26 +1,23 @@
+#' ---
+#' title: "03_tidy-surveyees.R"
+#' author: "csiu"
+#' date: "November 5, 2015"
+#' output: html_document
+#' ---
 suppressPackageStartupMessages(library(dplyr))
+library(readr)
 
-candy_survey <- read.delim("candy-survey-2015.csv", sep = ",",
-                           check.names = FALSE, na.strings = c("NA", ""))
+candy_survey <- read_csv("candy-survey-2015.csv",
+                         col_types = cols(
+                           Timestamp = col_datetime("%m/%d/%Y %H:%M:%S")
+                         ))
 
 ## remove space in front of colnames
 colnames(candy_survey) <- sub('^\\s+', '', colnames(candy_survey))
 
-## order surveyee by timestamp
-candy_surveyee <- candy_survey[,1] %>%
-  strptime(format = "%m/%d/%Y %H:%M:%S") %>%
-  data.frame(timestamp = .) %>%
-  mutate(user = order(timestamp)
-         #date = format(timestamp, format="%Y-%m-%d"),
-         #time = format(timestamp, format="%H:%M:%S")
-         )
-
-## add other fields (excluding joy/despair candy ratings & degree of separations)
-candy_surveyee <- cbind(candy_surveyee,
-      colnames(candy_survey) %>%
-        grep('^\\[|^Please|^Check all that apply|^Timestamp', ., value = TRUE, invert = TRUE) %>%
-        candy_survey[,.]) %>%
-  tbl_df()
+candy_surveyee <- colnames(candy_survey) %>%
+  grep('^\\[|^Please|^Check all that apply', ., value = TRUE, invert = TRUE) %>%
+  candy_survey[,.]
 
 ## rename columns
 Rename_columns <- function(candy_surveyee, old.name, new.name){
@@ -62,3 +59,5 @@ candy_surveyee <- Rename_columns(candy_surveyee,
 ## turn trick_or_treat into logical
 candy_surveyee <- candy_surveyee %>%
   mutate(trick_or_treat = trick_or_treat == "yes")
+
+#write.table(candy_surveyee, file = "candy_surveyee.csv", sep=",", row.names = FALSE)
