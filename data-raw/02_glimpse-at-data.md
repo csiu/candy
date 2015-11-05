@@ -12,14 +12,14 @@ suppressPackageStartupMessages(library(dplyr))
 
 
 ```r
-candy_survey <- read.delim("candy-survey-2015.tsv", sep = "\t", check.names = FALSE)
+candy_survey <- read.delim("candy-survey-2015.csv", sep = ",", check.names = FALSE)
 
 ## DATA SIZE
 dim(candy_survey)
 ```
 
 ```
-## [1] 3528  124
+## [1] 5658  124
 ```
 
 ## Candy survey questions (aka the data header)
@@ -66,14 +66,14 @@ candy_survey %>%
 ##   [8] "[Black Jacks]"                                                                                                    
 ##   [9] "[Bonkers]"                                                                                                        
 ##  [10] "[Bottle Caps]"                                                                                                    
-##  [11] "[Boxâ\u0080\u0099oâ\u0080\u0099 Raisins]"                                                                         
+##  [11] "[Box’o’ Raisins]"                                                                                                 
 ##  [12] "[Brach products (not including candy corn)]"                                                                      
 ##  [13] "[Bubble Gum]"                                                                                                     
 ##  [14] "[Cadbury Creme Eggs]"                                                                                             
 ##  [15] "[Candy Corn]"                                                                                                     
-##  [16] "[Vials of pure high fructose corn syrup, for main-lining into your vein]"                                         
+##  [16] " [Vials of pure high fructose corn syrup, for main-lining into your vein]"                                        
 ##  [17] "[Candy that is clearly just the stuff given out for free at restaurants]"                                         
-##  [18] "[Cash, or other forms of legal tender]"                                                                           
+##  [18] " [Cash, or other forms of legal tender]"                                                                          
 ##  [19] "[Chiclets]"                                                                                                       
 ##  [20] "[Caramellos]"                                                                                                     
 ##  [21] "[Snickers]"                                                                                                       
@@ -91,8 +91,8 @@ candy_survey %>%
 ##  [33] "[Creepy Religious comics/Chick Tracts]"                                                                           
 ##  [34] "[Healthy Fruit]"                                                                                                  
 ##  [35] "[Heath Bar]"                                                                                                      
-##  [36] "[Hersheyâ\u0080\u0099s Kissables]"                                                                                
-##  [37] "[Hersheyâ\u0080\u0099s Milk Chocolate]"                                                                           
+##  [36] "[Hershey’s Kissables]"                                                                                            
+##  [37] "[Hershey’s Milk Chocolate]"                                                                                       
 ##  [38] "[Hugs (actual physical hugs)]"                                                                                    
 ##  [39] "[Jolly Rancher (bad flavor)]"                                                                                     
 ##  [40] "[Jolly Ranchers (good flavor)]"                                                                                   
@@ -120,7 +120,7 @@ candy_survey %>%
 ##  [62] "[Now'n'Laters]"                                                                                                   
 ##  [63] "[Pencils]"                                                                                                        
 ##  [64] "[Milky Way]"                                                                                                      
-##  [65] "[Reeseâ\u0080\u0099s Peanut Butter Cups]"                                                                         
+##  [65] "[Reese’s Peanut Butter Cups]"                                                                                     
 ##  [66] "[Tolberone something or other]"                                                                                   
 ##  [67] "[Runts]"                                                                                                          
 ##  [68] "[Junior Mints]"                                                                                                   
@@ -128,7 +128,7 @@ candy_survey %>%
 ##  [70] "[Mint Kisses]"                                                                                                    
 ##  [71] "[Mint Juleps]"                                                                                                    
 ##  [72] "[Mint Leaves]"                                                                                                    
-##  [73] "[Peanut M&Mâ\u0080\u0099s]"                                                                                       
+##  [73] "[Peanut M&M’s]"                                                                                                   
 ##  [74] "[Regular M&Ms]"                                                                                                   
 ##  [75] "[Mint M&Ms]"                                                                                                      
 ##  [76] "[Ribbon candy]"                                                                                                   
@@ -136,7 +136,7 @@ candy_survey %>%
 ##  [78] "[Skittles]"                                                                                                       
 ##  [79] "[Smarties (American)]"                                                                                            
 ##  [80] "[Smarties (Commonwealth)]"                                                                                        
-##  [81] "[Chick-o-Sticks (we donâ\u0080\u0099t know what that is)]"                                                        
+##  [81] "[Chick-o-Sticks (we don’t know what that is)]"                                                                    
 ##  [82] "[Spotted Dick]"                                                                                                   
 ##  [83] "[Starburst]"                                                                                                      
 ##  [84] "[Swedish Fish]"                                                                                                   
@@ -157,19 +157,19 @@ candy_survey %>%
 ##  [99] "Please list any items not included above that give you DESPAIR."                                                  
 ## [100] "Guess the number of mints in my hand."                                                                            
 ## [101] "Betty or Veronica?"                                                                                               
-## [102] "Check all that apply: I cried tears of sadness at the end of  ____________"                                       
-## [103] "That dress* that went viral early this year - when I first saw it, it was ________"                               
-## [104] "Fill in the blank: Taylor Swift is a force for ___________"                                                       
+## [102] "Check all that apply: \"I cried tears of sadness at the end of  ____________\""                                   
+## [103] "\"That dress* that went viral early this year - when I first saw it, it was ________\""                           
+## [104] "Fill in the blank: \"Taylor Swift is a force for ___________\""                                                   
 ## [105] "What is your favourite font?"                                                                                     
-## [106] "If you squint really hard, the words Intelligent Design would look like."                                         
-## [107] "Fill in the blank: Imitation is a form of ____________"                                                           
+## [106] "If you squint really hard, the words \"Intelligent Design\" would look like."                                     
+## [107] "Fill in the blank: \"Imitation is a form of ____________\""                                                       
 ## [108] "Please estimate the degree(s) of separation you have from the following celebrities [JK Rowling]"                 
 ## [109] "Please estimate the degree(s) of separation you have from the following celebrities [JJ Abrams]"                  
-## [110] "Please estimate the degree(s) of separation you have from the following celebrities [BeyoncÃ©]"                   
+## [110] "Please estimate the degree(s) of separation you have from the following celebrities [Beyoncé]"                    
 ## [111] "Please estimate the degree(s) of separation you have from the following celebrities [Bieber]"                     
 ## [112] "Please estimate the degree(s) of separation you have from the following celebrities [Kevin Bacon]"                
 ## [113] "Please estimate the degree(s) of separation you have from the following celebrities [Francis Bacon (1561 - 1626)]"
-## [114] "[Sea-salt flavored stuff, probably chocolate, since this is the it flavor of the year]"                           
+## [114] " [Sea-salt flavored stuff, probably chocolate, since this is the \"it\" flavor of the year]"                      
 ## [115] "[Necco Wafers]"                                                                                                   
 ## [116] "Which day do you prefer, Friday or Sunday?"                                                                       
 ## [117] "Please estimate the degrees of separation you have from the following folks [Bruce Lee]"                          
@@ -179,7 +179,7 @@ candy_survey %>%
 ## [121] "Please estimate the degrees of separation you have from the following folks [JJ Abrams]"                          
 ## [122] "Please estimate the degrees of separation you have from the following folks [Hillary Clinton]"                    
 ## [123] "Please estimate the degrees of separation you have from the following folks [Donald Trump]"                       
-## [124] "Please estimate the degrees of separation you have from the following folks [BeyoncÃ© Knowles]"
+## [124] "Please estimate the degrees of separation you have from the following folks [Beyoncé Knowles]"
 ```
 
 

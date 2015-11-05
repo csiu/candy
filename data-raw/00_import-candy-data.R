@@ -54,11 +54,13 @@ readGoogleSheet <- function(url, na.string="", header=TRUE){
 }
 
 ## ======================================================================= ##
-gdoc <- "https://docs.google.com/spreadsheets/d/1REZvjqv0lj3dEYb0CsGyDXkXrjhJ4izlAEImgaufjCc/pubhtml"
+# gdoc <- "https://docs.google.com/spreadsheets/d/1REZvjqv0lj3dEYb0CsGyDXkXrjhJ4izlAEImgaufjCc/pubhtml"
+#
+# elem <- readGoogleSheet(gdoc)
+# m <- cleanGoogleTable(elem, table=1)
+#
+# write.table(m,
+#             file="candy-survey-2015.tsv",
+#             sep="\t", quote=F, row.names=F, na="NA")
 
-elem <- readGoogleSheet(gdoc)
-m <- cleanGoogleTable(elem, table=1)
-
-write.table(m,
-            file="candy-survey-2015.tsv",
-            sep="\t", quote=F, row.names=F, na="NA")
+## FIXME: columns are not aligned
