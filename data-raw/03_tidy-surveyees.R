@@ -15,6 +15,10 @@ candy_survey <- read_csv("candy-survey-2015.csv",
 ## remove space in front of colnames
 colnames(candy_survey) <- sub('^\\s+', '', colnames(candy_survey))
 
+## add user id column
+candy_survey <- candy_survey %>%
+  mutate(user = sprintf("ID-%04d", order(Timestamp)))
+
 candy_surveyee <- colnames(candy_survey) %>%
   grep('^\\[|^Please|^Check all that apply', ., value = TRUE, invert = TRUE) %>%
   candy_survey[,.]
@@ -62,7 +66,8 @@ candy_surveyee <- candy_surveyee %>%
 
 ## select columns I want
 candy_surveyee <- candy_surveyee %>%
-  select(Timestamp,
+  select(user,
+         Timestamp,
          n_mints,
          trick_or_treat,
          archie_girls,
