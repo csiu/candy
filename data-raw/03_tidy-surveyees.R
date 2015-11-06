@@ -60,4 +60,15 @@ candy_surveyee <- Rename_columns(candy_surveyee,
 candy_surveyee <- candy_surveyee %>%
   mutate(trick_or_treat = trick_or_treat == "yes")
 
-#write.table(candy_surveyee, file = "candy_surveyee.csv", sep=",", row.names = FALSE)
+## select columns I want
+candy_surveyee <- candy_surveyee %>%
+  select(Timestamp,
+         n_mints,
+         trick_or_treat,
+         archie_girls,
+         the_dress,
+         imitation,
+         friday_or_saturday
+         )
+
+write.table(candy_surveyee, file = "03_candy-surveyee.csv", sep=",", row.names = FALSE)
