@@ -26,4 +26,4 @@ candy_survey <- candy_survey %>%
 colnames(candy_survey)
 
 #' Save data:
-write.table(candy_survey, file = "02_candy-survey.csv", sep=",", row.names = FALSE)
+write_csv(candy_survey, "02_candy-survey.csv")

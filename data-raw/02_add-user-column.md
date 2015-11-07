@@ -168,12 +168,12 @@ Save data:
 
 
 ```r
-write.table(candy_survey, file = "02_candy-survey.csv", sep=",", row.names = FALSE)
+write_csv(candy_survey, "02_candy-survey.csv")
 ```
 
 
 ---
 title: "02_add-user-column.R"
 author: "csiu"
-date: "Fri Nov  6 09:53:43 2015"
+date: "Fri Nov  6 20:24:24 2015"
 ---
