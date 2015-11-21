@@ -5,6 +5,8 @@ output:
 ---
 # candysurvey
 
+**[QUICK REFERENCE]:** The candy survey data is contained in the `candysurvey` R object of this package.
+
 ## About the data
 A attempt at the cleanup of David Ng and Ben Cohen's 2015 **Halloween Candy Hierarchy** survey data
 
