@@ -56,9 +56,17 @@ candysurvey <- candysurvey %>%
   arrange(user)
 ```
 
+write out tidy candy survey data
+
+
+```r
+# write_csv(candysurvey, path = "../inst/candydata.csv")
+# devtools::use_data(candysurvey, overwrite = TRUE)
+```
+
 
 ---
 title: "README.R"
 author: "csiu"
-date: "Fri Nov 20 19:28:40 2015"
+date: "Fri Nov 20 19:30:39 2015"
 ---

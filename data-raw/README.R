@@ -56,3 +56,7 @@ for (f in infiles){
 
 candysurvey <- candysurvey %>%
   arrange(user)
+
+#' write out tidy candy survey data
+# write_csv(candysurvey, path = "../inst/candydata.csv")
+# devtools::use_data(candysurvey, overwrite = TRUE)
