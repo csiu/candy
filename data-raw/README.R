@@ -57,6 +57,30 @@ for (f in infiles){
 candysurvey <- candysurvey %>%
   arrange(user)
 
-#' write out tidy candy survey data
-# write_csv(candysurvey, path = "../inst/candydata.csv")
-# devtools::use_data(candysurvey, overwrite = TRUE)
+#' Write out tidy candy survey data
+write_csv(candysurvey, path = "../inst/candydata.csv")
+
+#' To Robject
+## save integer info
+candysurvey_age <- candysurvey$age
+candysurvey_nmint <- candysurvey$n_mints
+
+## convert everything to factor
+candysurvey <- sapply(candysurvey, FUN = factor, USE.NAMES = FALSE) %>%
+  as.data.frame() %>%
+  tbl_df()
+
+## convert integers
+candysurvey$age <- candysurvey_age
+candysurvey$n_mints <- candysurvey_nmint
+
+## convert other
+candysurvey <- candysurvey %>%
+  mutate(
+    user = as.character(user),
+    trick_or_treat = as.logical(trick_or_treat)
+  )
+
+## save robject
+devtools::use_data(candysurvey, overwrite = TRUE)
+

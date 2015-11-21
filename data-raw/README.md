@@ -56,17 +56,48 @@ candysurvey <- candysurvey %>%
   arrange(user)
 ```
 
-write out tidy candy survey data
+Write out tidy candy survey data
 
 
 ```r
-# write_csv(candysurvey, path = "../inst/candydata.csv")
-# devtools::use_data(candysurvey, overwrite = TRUE)
+write_csv(candysurvey, path = "../inst/candydata.csv")
+```
+
+To Robject
+
+
+```r
+## save integer info
+candysurvey_age <- candysurvey$age
+candysurvey_nmint <- candysurvey$n_mints
+
+## convert everything to factor
+candysurvey <- sapply(candysurvey, FUN = factor, USE.NAMES = FALSE) %>%
+  as.data.frame() %>%
+  tbl_df()
+
+## convert integers
+candysurvey$age <- candysurvey_age
+candysurvey$n_mints <- candysurvey_nmint
+
+## convert other
+candysurvey <- candysurvey %>%
+  mutate(
+    user = as.character(user),
+    trick_or_treat = as.logical(trick_or_treat)
+  )
+
+## save robject
+devtools::use_data(candysurvey, overwrite = TRUE)
+```
+
+```
+## Saving candysurvey to data/candysurvey.rda
 ```
 
 
 ---
 title: "README.R"
 author: "csiu"
-date: "Fri Nov 20 19:30:39 2015"
+date: "Fri Nov 20 21:06:43 2015"
 ---
