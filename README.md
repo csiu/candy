@@ -197,5 +197,10 @@ candysurvey %>% glimpse()
 ## $ Necco Wafers                                                                         (fctr) ...
 ```
 
+## Plain text delimited files
+I make available the plain text, comma delimited, `.csv` file of the candy survey data:
+
+- [candysurvey.csv](inst/candysurvey.csv): the same dataset available via `library(candysurvey); candysurvey`
+
 ## Acknowledgement
 This work -- as part of my [STAT 547M](http://stat545-ubc.github.io) coursework -- is inspired by @[jennybc/candy](https://github.com/jennybc/candy).

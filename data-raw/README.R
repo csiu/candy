@@ -58,7 +58,7 @@ candysurvey <- candysurvey %>%
   arrange(user)
 
 #' Write out tidy candy survey data
-write_csv(candysurvey, path = "../inst/candydata.csv")
+write_csv(candysurvey, path = "../inst/candysurvey.csv")
 
 #' To Robject
 ## save integer info
