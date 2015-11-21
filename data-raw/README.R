@@ -47,12 +47,12 @@ for (f in infiles){
   dat1 <- read_csv(f)
   if (round1){
     round1 = FALSE
-    good_data <- dat1
+    candysurvey <- dat1
     next()
   } else {
-    good_data <- left_join(good_data, dat1, by = "user")
+    candysurvey <- left_join(candysurvey, dat1, by = "user")
   }
 }
 
-good_data <- good_data %>%
+candysurvey <- candysurvey %>%
   arrange(user)

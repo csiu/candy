@@ -45,14 +45,14 @@ for (f in infiles){
   dat1 <- read_csv(f)
   if (round1){
     round1 = FALSE
-    good_data <- dat1
+    candysurvey <- dat1
     next()
   } else {
-    good_data <- left_join(good_data, dat1, by = "user")
+    candysurvey <- left_join(candysurvey, dat1, by = "user")
   }
 }
 
-good_data <- good_data %>%
+candysurvey <- candysurvey %>%
   arrange(user)
 ```
 
@@ -60,5 +60,5 @@ good_data <- good_data %>%
 ---
 title: "README.R"
 author: "csiu"
-date: "Sun Nov  8 19:41:28 2015"
+date: "Fri Nov 20 19:28:40 2015"
 ---
