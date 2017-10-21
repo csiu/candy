@@ -3,7 +3,7 @@
 **[QUICK REFERENCE]:** The candy survey data is contained in the `candysurvey` R object of this package.
 
 ## About the data
-A attempt at the cleanup of David Ng and Ben Cohen's 2015 **Halloween Candy Hierarchy** survey data
+An attempt at cleaning up David Ng and Ben Cohen's 2015 **Halloween Candy Hierarchy** survey data
 
 - The experiment is described at: http://boingboing.net/2015/10/23/only-you-can-determine-what-to.html
 - The survey is located at: https://docs.google.com/forms/d/1XjybL7zDs479qYk9jFptDc35fjjXFyXLnTCHCMIw6pI/viewform
